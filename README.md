@@ -157,6 +157,9 @@ No known bugs at this time.
 Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
 Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
 
-Second part of Airbnb: Joann Vuong
+## Author 
+#### (Third part of Airbnb -RESTful API)
+Jacinto Gutierrez - [Github](https://github.com/Jagucan)
+
 ## License
 Public Domain. No copy write protection. 
