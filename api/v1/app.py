@@ -11,6 +11,7 @@ app.register_blueprint(app_views)
 
 @app.teardown_appcontext
 def shutdown_session():
+    """teardown method to shut down"""
     storage.close()
 
 
