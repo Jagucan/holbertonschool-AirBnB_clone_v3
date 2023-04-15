@@ -12,7 +12,6 @@ if __name__ == "__main__":
     def status_route():
         """ app view routes """
         response = jsonify({"status": "OK"})
-        response.headers["Content-Type"] = "application/json"
-    return response
+        return response
 
     app.run(host="0.0.0.0", port=5000, debug=True)
