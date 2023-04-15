@@ -18,7 +18,7 @@ if __name__ == "__main__":
         """ Teardown method to shut down """
         storage.close()
 
-    @app.errorhandler(404)
+    @app.errorhandler("/api/v1/notexist")
     def not_found():
         return jsonify({"error": "Not found"}), 404
 
