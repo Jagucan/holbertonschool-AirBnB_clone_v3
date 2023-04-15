@@ -6,7 +6,7 @@ Module for the API
 
 if __name__ == "__main__":
 
-    from flask import Flask
+    from flask import Flask, jsonify
     from models import storage
     from api.v1.views import app_views
 
@@ -17,5 +17,9 @@ if __name__ == "__main__":
     def shutdown_session():
         """ Teardown method to shut down """
         storage.close()
+
+    @app.errorhandler(404)
+    def not_found():
+        return jsonify({"error": "Not found"}), 404
 
     app.run(host="0.0.0.0", port=5000, threaded=True)
