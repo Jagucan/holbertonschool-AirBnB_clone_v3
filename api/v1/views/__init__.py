@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ views Module """
+from api.v1.views.states import *
 from api.v1.views.index import *
 from flask import Blueprint
 
