@@ -1,10 +1,15 @@
 #!/usr/bin/python3
 """ Index Module """
-from flask import jsonify
 
-
-@app_views.route("/status")
-def status_route():
+if __name__ == "__main__":
     from api.v1.views import app_views
-    """ app view routes """
-    return jsonify({"status": "OK"})
+    from flask import jsonify
+
+    app = Flask(__name__)
+    app.register_blueprint(app_views)
+
+    @app_views.route("/status")
+    def status_route():
+        """ app view routes """
+        return jsonify({"status": "OK"})
+        app.run(debug=True)
