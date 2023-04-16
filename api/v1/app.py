@@ -14,8 +14,8 @@ if __name__ == "__main__":
     app.register_blueprint(app_views)
 
     @app.teardown_appcontext
-    def shutdown_session():
-        """ Teardown method to shut down """
+    def teardown_db(exception):
+        """closes the storage on teardown"""
         storage.close()
 
     @app.errorhandler(404)
@@ -23,4 +23,4 @@ if __name__ == "__main__":
         """ Teardown method to not found """
         return jsonify({"error": "Not found"}), 404
 
-    app.run(host="0.0.0.0", port=5000, threaded=True)
+    app.run(host='0.0.0.0', port='5000', threaded=True)
