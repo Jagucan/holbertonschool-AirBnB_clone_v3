@@ -4,7 +4,7 @@ Module for the API
 """
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
     from flask import Flask, jsonify
     from models import storage
@@ -21,6 +21,6 @@ if __name__ == "__main__":
     @app.errorhandler(404)
     def not_found(error):
         """ Teardown method to not found """
-        return jsonify({"error": "Not found"}), 404
+        return jsonify({'error': 'Not found'}), 404
 
     app.run(host='0.0.0.0', port='5000', threaded=True)
