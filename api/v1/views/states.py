@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" States views module """
+""" States module """
 
 if __name__ == "__main__":
 
