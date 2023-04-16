@@ -10,11 +10,10 @@ if __name__ == "__main__":
     app = Flask(__name__)
     app.register_blueprint(app_views)
 
-    @app_views.route("/api/v1/status")
+    @app_views.route('/api/v1/status')
     def status_route():
         """  """
-        response = jsonify({"status": "OK"})
-        return response
+        return ({'status': 'OK'}).json
 
     @app_views.route("/api/v1/stats", methods=["GET"])
     def get_stats():
