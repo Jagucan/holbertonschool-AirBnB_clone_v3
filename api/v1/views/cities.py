@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Cities module """
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
     from api.v1.views import app_views
     from flask import jsonify, abort, request

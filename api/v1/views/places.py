@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Index Module """
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
     from flask import jsonify, abort, request
     from api.v1.views import app_views
