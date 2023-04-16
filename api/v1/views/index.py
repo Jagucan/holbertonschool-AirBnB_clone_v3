@@ -2,6 +2,7 @@
 """ Index Module """
 
 if __name__ == "__main__":
+
     from api.v1.views import app_views
     from flask import jsonify, Flask
     from models import storage
