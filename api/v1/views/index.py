@@ -4,13 +4,16 @@
 from api.v1.views import app_views
 from flask import jsonify, Flask
 from models import storage
+from sqlalchemy import text
+
 
 @app_views.route('/status')
 def get_status():
     """  """
     return jsonify({'status': 'OK'})
 
-@app_views.route('/stats')
+
+@app_views.route('/stats', methods=['GET'])
 def get_stats():
     """ Retrieves the number of each object by type """
     stats = {
