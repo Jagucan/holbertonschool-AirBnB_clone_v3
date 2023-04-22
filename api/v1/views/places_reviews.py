@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """  """
 
-    from flask import jsonify, abort, request
-    from models import storage
-    from models.place import Place
-    from models.review import Review
-    from api.v1.views import app_views
+from flask import jsonify, abort, request
+from models import storage
+from models.place import Place
+from models.review import Review
+from api.v1.views import app_views
 
 @app_views.route('/places/<place_id>/reviews', methods=['GET'])
 def get_reviews_by_place(place_id):
@@ -28,17 +28,18 @@ def get_review(review_id):
 
 @app_views.route('/reviews/<review_id>', methods=['DELETE'])
 def delete_review(review_id):
-"""  """
-review = storage.get(Review, review_id)
-if not review:
-    abort(404)
-storage.delete(review)
-storage.save()
-return jsonify({}), 200
+    """  """
+    review = storage.get(Review, review_id)
+    if not review:
+        abort(404)
+    storage.delete(review)
+    storage.save()
+    return jsonify({}), 200
 
 
 @app_views.route('/places/<place_id>/reviews', methods=['POST'])
-def create_review(place_id):    """  """
+def create_review(place_id):
+    """  """
     place = storage.get(Place, place_id)
     if not place:
         abort(404)
