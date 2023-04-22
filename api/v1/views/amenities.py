@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """ Amenity module """
-
-
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage, Amenity
+
 
 @app_views.route("/api/v1/amenities", methods=["GET"])
 def get_all_amenities():
@@ -15,6 +14,7 @@ def get_all_amenities():
         list_amenities.append(amenity.to_dict())
     return jsonify(list_amenities)
 
+
 @app_views.route("/api/v1/amenities/<amenity_id>", methods=["GET"])
 def get_amenity(amenity_id):
     """Retrieves a Amenity object"""
@@ -22,6 +22,7 @@ def get_amenity(amenity_id):
     if amenity is None:
         abort(404)
     return jsonify(amenity.to_dict())
+
 
 @app_views.route("/api/v1/amenities/<amenity_id>", methods=["DELETE"])
 def delete_amenity(amenity_id):
@@ -32,6 +33,7 @@ def delete_amenity(amenity_id):
     storage.delete(amenity)
     storage.save()
     return jsonify({})
+
 
 @app_views.route("/api/v1/amenities", methods=["POST"])
 def create_amenity():
@@ -45,6 +47,7 @@ def create_amenity():
     storage.new(amenity)
     storage.save()
     return jsonify(amenity.to_dict()), 201
+
 
 @app_views.route("/api/v1/amenities/<amenity_id>", methods=["PUT"])
 def update_amenity(amenity_id):

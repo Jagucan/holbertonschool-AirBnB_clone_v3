@@ -6,6 +6,7 @@ from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage, State, City
 
+
 @app_views.route("/states/<state_id>/cities", methods=["GET"])
 def get_all_cities_by_state(state_id):
     """Retrieves the list of all City objects of a State"""
@@ -19,6 +20,7 @@ def get_all_cities_by_state(state_id):
             list_cities.append(city.to_dict())
     return jsonify(list_cities)
 
+
 @app_views.route("/cities/<city_id>", methods=["GET"])
 def get_city(city_id):
     """Retrieves a City object"""
@@ -26,6 +28,7 @@ def get_city(city_id):
     if city is None:
         abort(404)
     return jsonify(city.to_dict())
+
 
 @app_views.route("/cities/<city_id>", methods=["DELETE"])
 def delete_city(city_id):
@@ -36,6 +39,7 @@ def delete_city(city_id):
     storage.delete(city)
     storage.save()
     return jsonify({})
+
 
 @app_views.route("/states/<state_id>/cities", methods=["POST"])
 def create_city(state_id):
@@ -53,6 +57,7 @@ def create_city(state_id):
     storage.new(city)
     storage.save()
     return jsonify(city.to_dict()), 201
+
 
 @app_views.route("/cities/<city_id>", methods=["PUT"])
 def update_city(city_id):

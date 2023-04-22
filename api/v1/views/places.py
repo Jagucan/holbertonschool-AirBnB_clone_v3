@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ Index Module """
-
 from flask import jsonify, abort, request
 from api.v1.views import app_views
 from models import storage, City, Place, User
@@ -24,6 +23,7 @@ def get_place(place_id):
         abort(404)
     return jsonify(place.to_dict())
 
+
 @app_views.route('/places/<place_id>', methods=['DELETE'])
 def delete_place(place_id):
     """  """
@@ -33,6 +33,7 @@ def delete_place(place_id):
     storage.delete(place)
     storage.save()
     return jsonify({})
+
 
 @app_views.route('/cities/<city_id>/places', methods=['POST'])
 def create_place(city_id):
