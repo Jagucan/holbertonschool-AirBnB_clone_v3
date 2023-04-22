@@ -14,11 +14,16 @@ def get_status():
 @app_views.route('/stats')
 def get_stats():
     """  """
-    stats = {}
-    stats["amenities"] = storage.count()
-    stats["cities"] = storage.count()
-    stats["places"] = storage.count()
-    stats["reviews"] = storage.count()
-    stats["states"] = storage.count()
-    stats["users"] = storage.count()
-    return jsonify(stats)
+    stats = {
+        "amenities" : "amenities",
+        "cities" : "cities",
+        "places" : "places",
+        "reviews" : "reviews",
+        "states" : "states",
+        "users" : "users"
+    }
+
+    count_stats = {}
+    for key, value in stats.items():
+        count_stats[key] = storage.count(value)
+    return jsonify(count_stats)
