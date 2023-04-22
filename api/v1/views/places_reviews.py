@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-"""  """
-
+""" Reviews module """
 from flask import jsonify, abort, request
 from models import storage
 from models.place import Place
 from models.review import Review
 from api.v1.views import app_views
 
+
 @app_views.route('/places/<place_id>/reviews', methods=['GET'])
 def get_reviews_by_place(place_id):
-    """  """
+    """ place_id -> reviews get """
     place = storage.get(Place, place_id)
     if not place:
         abort(404)
@@ -19,7 +19,7 @@ def get_reviews_by_place(place_id):
 
 @app_views.route('/reviews/<review_id>', methods=['GET'])
 def get_review(review_id):
-    """  """
+    """ reviews_id get """
     review = storage.get(Review, review_id)
     if not review:
         abort(404)
@@ -28,7 +28,7 @@ def get_review(review_id):
 
 @app_views.route('/reviews/<review_id>', methods=['DELETE'])
 def delete_review(review_id):
-    """  """
+    """ reviews_id get delete """
     review = storage.get(Review, review_id)
     if not review:
         abort(404)
@@ -39,7 +39,7 @@ def delete_review(review_id):
 
 @app_views.route('/places/<place_id>/reviews', methods=['POST'])
 def create_review(place_id):
-    """  """
+    """ place_id -> reviews post """
     place = storage.get(Place, place_id)
     if not place:
         abort(404)
@@ -62,7 +62,7 @@ def create_review(place_id):
 
 @app_views.route('/reviews/<review_id>', methods=['PUT'])
 def update_review(review_id):
-    """  """
+    """  reviews_id put """
     review = storage.get(Review, review_id)
     if not review:
         abort(404)
