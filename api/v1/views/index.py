@@ -15,12 +15,12 @@ def get_status():
 def get_stats():
     """  """
     stats = {
-        "amenities" : "amenities",
-        "cities" : "cities",
-        "places" : "places",
-        "reviews" : "reviews",
-        "states" : "states",
-        "users" : "users"
+        "amenities": "amenities",
+        "cities": "cities",
+        "places": "places",
+        "reviews": "reviews",
+        "states": "states",
+        "users": "users"
     }
 
     count_stats = {}
